@@ -35,6 +35,10 @@ python bib-merger.py --no-interactive file1.bib file2.bib output.bib
 
 - e) or automatic selection (non-interactive mode)
 
+## Known Issues
+
+- If the title field contains comma (`,`), it might be truncated when parsing title. This parsed title field is only used for consistency checks. The final output is not affected.
+
 ## License
 
 This project is open source and available under the MIT License. 
