@@ -23,7 +23,15 @@ GREEN = "\033[92m"
 RESET = "\033[0m"
 BOLD = "\033[1m"
 
+# Valid BibTeX entry types
+VALID_ENTRY_TYPES = [
+    'article', 'book', 'booklet', 'conference', 'inbook', 'incollection',
+    'inproceedings', 'manual', 'mastersthesis', 'misc', 'phdthesis',
+    'proceedings', 'techreport', 'unpublished'
+]
+
 def parse_bib_file(filename):
+    """Parse a BibTeX file and return a dictionary of entries."""
     if not os.path.exists(filename):
         print(f"Error: File {filename} does not exist.")
         sys.exit(1)
@@ -33,8 +41,9 @@ def parse_bib_file(filename):
     
     # Extract individual entries
     entries = {}
-    entry_pattern = r'@(\w+)\{([^,]+),([\s\S]*?)\n\}'
-    for match in re.finditer(entry_pattern, content):
+    # Updated pattern to only match valid entry types
+    entry_pattern = r'@(' + '|'.join(VALID_ENTRY_TYPES) + r')\{([^,]+),([\s\S]*?)\n\}'
+    for match in re.finditer(entry_pattern, content, re.IGNORECASE):
         entry_type = match.group(1).lower()
         entry_key = match.group(2).strip()
         entry_content = match.group(3).strip()
