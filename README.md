@@ -4,12 +4,12 @@ A Python script for merging multiple BibTeX `.bib` files, resolve conflicts, and
 ## Usage
 
 ```bash
-python bib-merger.py [options] input1.bib input2.bib [input3.bib ...] output.bib
+python bib-merger.py [options] input1.bib [input2.bib input3.bib ...] output.bib
 ```
 
 ### Arguments
 
-- `input1.bib`, `input2.bib`, etc.: Input BibTeX files to merge
+- `input1.bib`, `input2.bib`, etc.: Input BibTeX files to merge/examine
 - `output.bib`: Output file for merged entries
 - `--no-interactive`: (Optional) Run in non-interactive mode, automatically choosing entries when conflicts occur
 - `--overwrite`: (Optional) Overwrite the output file without asking for confirmation

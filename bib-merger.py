@@ -367,8 +367,8 @@ if __name__ == "__main__":
     
     args = parser.parse_args()
     
-    if len(args.files) < 3:
-        print("Error: At least two input BibTeX files and one output file are required.")
+    if len(args.files) < 2:
+        print("Error: At least one input BibTeX file and one output file are required.")
         sys.exit(1)
     
     output_file = args.files[-1]
